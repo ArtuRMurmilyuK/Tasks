@@ -1,5 +1,5 @@
-﻿- Create MyDictionary
-- Add method:
-			 - Add
-			 - Show
-			 - Clear
+﻿+ Create MyDictionary
++ Add method:
+			 + Add
+			 + Show
+			 + Clear

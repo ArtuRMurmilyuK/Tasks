@@ -1,0 +1,16 @@
+C:\repos\Tasks\DictionaryApp\DictionaryApp\bin\Debug\net5.0\DictionaryApp.exe
+C:\repos\Tasks\DictionaryApp\DictionaryApp\bin\Debug\net5.0\DictionaryApp.deps.json
+C:\repos\Tasks\DictionaryApp\DictionaryApp\bin\Debug\net5.0\DictionaryApp.runtimeconfig.json
+C:\repos\Tasks\DictionaryApp\DictionaryApp\bin\Debug\net5.0\DictionaryApp.runtimeconfig.dev.json
+C:\repos\Tasks\DictionaryApp\DictionaryApp\bin\Debug\net5.0\DictionaryApp.dll
+C:\repos\Tasks\DictionaryApp\DictionaryApp\bin\Debug\net5.0\ref\DictionaryApp.dll
+C:\repos\Tasks\DictionaryApp\DictionaryApp\bin\Debug\net5.0\DictionaryApp.pdb
+C:\repos\Tasks\DictionaryApp\DictionaryApp\obj\Debug\net5.0\DictionaryApp.csproj.AssemblyReference.cache
+C:\repos\Tasks\DictionaryApp\DictionaryApp\obj\Debug\net5.0\DictionaryApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\repos\Tasks\DictionaryApp\DictionaryApp\obj\Debug\net5.0\DictionaryApp.AssemblyInfoInputs.cache
+C:\repos\Tasks\DictionaryApp\DictionaryApp\obj\Debug\net5.0\DictionaryApp.AssemblyInfo.cs
+C:\repos\Tasks\DictionaryApp\DictionaryApp\obj\Debug\net5.0\DictionaryApp.csproj.CoreCompileInputs.cache
+C:\repos\Tasks\DictionaryApp\DictionaryApp\obj\Debug\net5.0\DictionaryApp.dll
+C:\repos\Tasks\DictionaryApp\DictionaryApp\obj\Debug\net5.0\ref\DictionaryApp.dll
+C:\repos\Tasks\DictionaryApp\DictionaryApp\obj\Debug\net5.0\DictionaryApp.pdb
+C:\repos\Tasks\DictionaryApp\DictionaryApp\obj\Debug\net5.0\DictionaryApp.genruntimeconfig.cache
