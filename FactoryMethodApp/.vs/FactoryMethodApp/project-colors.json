@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ecf36be0-7cae-4a9f-a8ee-aa37aee1c2b3": {
+      "ProjectGuid": "ecf36be0-7cae-4a9f-a8ee-aa37aee1c2b3",
+      "DisplayName": "FactoryMethodApp",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

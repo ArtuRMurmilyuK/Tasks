@@ -1,0 +1,16 @@
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\bin\Debug\net5.0\FactoryMethodApp.exe
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\bin\Debug\net5.0\FactoryMethodApp.deps.json
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\bin\Debug\net5.0\FactoryMethodApp.runtimeconfig.json
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\bin\Debug\net5.0\FactoryMethodApp.runtimeconfig.dev.json
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\bin\Debug\net5.0\FactoryMethodApp.dll
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\bin\Debug\net5.0\ref\FactoryMethodApp.dll
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\bin\Debug\net5.0\FactoryMethodApp.pdb
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\obj\Debug\net5.0\FactoryMethodApp.csproj.AssemblyReference.cache
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\obj\Debug\net5.0\FactoryMethodApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\obj\Debug\net5.0\FactoryMethodApp.AssemblyInfoInputs.cache
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\obj\Debug\net5.0\FactoryMethodApp.AssemblyInfo.cs
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\obj\Debug\net5.0\FactoryMethodApp.csproj.CoreCompileInputs.cache
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\obj\Debug\net5.0\FactoryMethodApp.dll
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\obj\Debug\net5.0\ref\FactoryMethodApp.dll
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\obj\Debug\net5.0\FactoryMethodApp.pdb
+C:\repos\Tasks\FactoryMethodApp\FactoryMethodApp\obj\Debug\net5.0\FactoryMethodApp.genruntimeconfig.cache
