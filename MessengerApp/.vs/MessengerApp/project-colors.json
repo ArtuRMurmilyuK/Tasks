@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ea2534c1-9ba2-4c42-b442-9a362df7f396": {
+      "ProjectGuid": "ea2534c1-9ba2-4c42-b442-9a362df7f396",
+      "DisplayName": "MessengerApp",
+      "ColorIndex": 0
+    },
+    "fbdbc9f0-5830-43f0-bffc-b56976ec97f6": {
+      "ProjectGuid": "fbdbc9f0-5830-43f0-bffc-b56976ec97f6",
+      "DisplayName": "Client",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

@@ -1,0 +1,16 @@
+C:\repos\Tasks\MessengerApp\Client\bin\Debug\net5.0\Client.exe
+C:\repos\Tasks\MessengerApp\Client\bin\Debug\net5.0\Client.deps.json
+C:\repos\Tasks\MessengerApp\Client\bin\Debug\net5.0\Client.runtimeconfig.json
+C:\repos\Tasks\MessengerApp\Client\bin\Debug\net5.0\Client.runtimeconfig.dev.json
+C:\repos\Tasks\MessengerApp\Client\bin\Debug\net5.0\Client.dll
+C:\repos\Tasks\MessengerApp\Client\bin\Debug\net5.0\ref\Client.dll
+C:\repos\Tasks\MessengerApp\Client\bin\Debug\net5.0\Client.pdb
+C:\repos\Tasks\MessengerApp\Client\obj\Debug\net5.0\Client.csproj.AssemblyReference.cache
+C:\repos\Tasks\MessengerApp\Client\obj\Debug\net5.0\Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\repos\Tasks\MessengerApp\Client\obj\Debug\net5.0\Client.AssemblyInfoInputs.cache
+C:\repos\Tasks\MessengerApp\Client\obj\Debug\net5.0\Client.AssemblyInfo.cs
+C:\repos\Tasks\MessengerApp\Client\obj\Debug\net5.0\Client.csproj.CoreCompileInputs.cache
+C:\repos\Tasks\MessengerApp\Client\obj\Debug\net5.0\Client.dll
+C:\repos\Tasks\MessengerApp\Client\obj\Debug\net5.0\ref\Client.dll
+C:\repos\Tasks\MessengerApp\Client\obj\Debug\net5.0\Client.pdb
+C:\repos\Tasks\MessengerApp\Client\obj\Debug\net5.0\Client.genruntimeconfig.cache
