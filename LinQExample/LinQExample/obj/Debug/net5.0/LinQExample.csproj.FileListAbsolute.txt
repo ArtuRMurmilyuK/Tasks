@@ -1,0 +1,16 @@
+C:\repos\Tasks\LinQExample\LinQExample\bin\Debug\net5.0\LinQExample.exe
+C:\repos\Tasks\LinQExample\LinQExample\bin\Debug\net5.0\LinQExample.deps.json
+C:\repos\Tasks\LinQExample\LinQExample\bin\Debug\net5.0\LinQExample.runtimeconfig.json
+C:\repos\Tasks\LinQExample\LinQExample\bin\Debug\net5.0\LinQExample.runtimeconfig.dev.json
+C:\repos\Tasks\LinQExample\LinQExample\bin\Debug\net5.0\LinQExample.dll
+C:\repos\Tasks\LinQExample\LinQExample\bin\Debug\net5.0\ref\LinQExample.dll
+C:\repos\Tasks\LinQExample\LinQExample\bin\Debug\net5.0\LinQExample.pdb
+C:\repos\Tasks\LinQExample\LinQExample\obj\Debug\net5.0\LinQExample.csproj.AssemblyReference.cache
+C:\repos\Tasks\LinQExample\LinQExample\obj\Debug\net5.0\LinQExample.GeneratedMSBuildEditorConfig.editorconfig
+C:\repos\Tasks\LinQExample\LinQExample\obj\Debug\net5.0\LinQExample.AssemblyInfoInputs.cache
+C:\repos\Tasks\LinQExample\LinQExample\obj\Debug\net5.0\LinQExample.AssemblyInfo.cs
+C:\repos\Tasks\LinQExample\LinQExample\obj\Debug\net5.0\LinQExample.csproj.CoreCompileInputs.cache
+C:\repos\Tasks\LinQExample\LinQExample\obj\Debug\net5.0\LinQExample.dll
+C:\repos\Tasks\LinQExample\LinQExample\obj\Debug\net5.0\ref\LinQExample.dll
+C:\repos\Tasks\LinQExample\LinQExample\obj\Debug\net5.0\LinQExample.pdb
+C:\repos\Tasks\LinQExample\LinQExample\obj\Debug\net5.0\LinQExample.genruntimeconfig.cache
