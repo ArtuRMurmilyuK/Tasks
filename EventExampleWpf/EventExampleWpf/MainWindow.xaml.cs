@@ -23,6 +23,13 @@ namespace EventExampleWpf
         public MainWindow()
         {
             InitializeComponent();
+            new Presenter(this);
+        }
+
+        public event EventHandler SomeEvent = null;
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SomeEvent.Invoke(sender,e);
         }
     }
 }
