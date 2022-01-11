@@ -11,10 +11,10 @@ namespace BusinessLogic.Core
             ReleaseDate = releaseDate;
         }
 
-        int SerialNumber { get; }
+        public int SerialNumber { get; }
 
-        string Name { get; }
+        public string Name { get; }
 
-        DateTime ReleaseDate { get; }
+        public DateTime ReleaseDate { get; }
     }
 }

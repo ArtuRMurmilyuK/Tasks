@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using BusinessLogic.Core;
 
 namespace BusinessLogic.Infrastructure
@@ -17,6 +18,11 @@ namespace BusinessLogic.Infrastructure
         {
             _inMemorySets.Remove(set);
             return true;
+        }
+
+        public void SamplingBySerialNumber(int num)
+        {
+            var item = _inMemorySets.Where(x => x.SerialNumber == num);
         }
     }
 }
