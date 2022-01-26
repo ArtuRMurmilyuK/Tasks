@@ -1,0 +1,1 @@
+﻿+ remove extra characters from email and count how many matching ones turned out
