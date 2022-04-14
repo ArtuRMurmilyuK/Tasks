@@ -1,16 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Args;
 using Telegram.Bot.Extensions.Polling;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace Pavlov_Bot
 {
     class Program
     {
-        static ITelegramBotClient bot = new TelegramBotClient("Token");
+        static ITelegramBotClient bot = new TelegramBotClient("5325291515:AAERyAXGZoQRi5FngozkQgigx-BlCSiPT1Y");
         public static async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
             Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(update));
@@ -20,11 +22,61 @@ namespace Pavlov_Bot
                 if (message.Text.ToLower() == "/start")
                 {
                     await botClient.SendTextMessageAsync(message.Chat, "Вітаємо у нашому магазині Pavlov Drop");
+                    await botClient.SendTextMessageAsync(message.Chat.Id, message.Text, replyMarkup: GetButtons());
                     return;
                 }
-                await botClient.SendTextMessageAsync(message.Chat, "Привет-привет!!");
-                await botClient.SendTextMessageAsync(message.Chat.Id, message.Text, replyMarkup: GetButtons());
+
+                switch (message.Text.ToLower())
+                {
+                    case "переглянути товари":
+                        await botClient.SendTextMessageAsync(message.Chat.Id, message.Text, replyMarkup: GetButtonsSneakersName());
+                        break;
+                    case "інформація про нас":
+                        await botClient.SendTextMessageAsync(message.Chat, "Ми неповторні, бо Ми з України");
+                        break;
+                    case "nike":
+                        await botClient.SendTextMessageAsync(message.Chat, "Nike");
+                        break;
+                    default:
+                        await botClient.SendTextMessageAsync(message.Chat.Id, "Виберіть команду", replyMarkup: GetButtons());
+                        break;
+                }
             }
+        }
+
+        private static IReplyMarkup GetButtons()
+        {
+            var Keyboard = new List<List<KeyboardButton>>
+            {
+                new List<KeyboardButton>
+                {
+                    new KeyboardButton("Переглянути товари"),
+                    new KeyboardButton("Інформація про нас")
+                }
+                //new List<KeyboardButton>
+                //{
+                //    new KeyboardButton("💭"),
+                //    new KeyboardButton("Інформація про нас")
+                //}
+            };
+           return new ReplyKeyboardMarkup(Keyboard);
+        }
+        private static IReplyMarkup GetButtonsSneakersName()
+        {
+            var Keyboard = new List<List<KeyboardButton>>
+            {
+                new List<KeyboardButton>
+                {
+                    new KeyboardButton("Nike"),
+                    new KeyboardButton("Adidas")
+                }
+                //new List<KeyboardButton>
+                //{
+                //    new KeyboardButton("💭"),
+                //    new KeyboardButton("Інформація про нас")
+                //}
+            };
+            return new ReplyKeyboardMarkup(Keyboard);
         }
 
         public static async Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
