@@ -17,6 +17,32 @@ namespace Pavlov_Bot.Keyboard
             return replyKeyboardMarkup;
         }
 
+        public static IReplyMarkup GetButtonsSneakersNike()
+        {
+            ReplyKeyboardMarkup replyKeyboardMarkup = new(new[]
+            {
+                new KeyboardButton[] {"Force", "Dunk"},
+                new KeyboardButton[] {"M2k", "Shadow"},
+            })
+            {
+                ResizeKeyboard = true
+            };
+            return replyKeyboardMarkup;
+        }
+
+        public static IReplyMarkup GetButtonsSneakersAdidas()
+        {
+            ReplyKeyboardMarkup replyKeyboardMarkup = new(new[]
+            {
+                new KeyboardButton[] {"Ozelia", "Iniki"},
+                new KeyboardButton[] {"Niteball", "Yeezy 350"},
+            })
+            {
+                ResizeKeyboard = true
+            };
+            return replyKeyboardMarkup;
+        }
+
         public static IReplyMarkup GetButtons()
         {
             ReplyKeyboardMarkup replyKeyboardMarkup = new(new[]
@@ -35,8 +61,8 @@ namespace Pavlov_Bot.Keyboard
             {
                 new[]
                 {
-                    InlineKeyboardButton.WithCallbackData("Попереднє","1"),
-                    InlineKeyboardButton.WithCallbackData("Наступне","0"),
+                    InlineKeyboardButton.WithCallbackData("Інформація","інформація"),
+                    InlineKeyboardButton.WithCallbackData("Наступне","наступне"),
                 },
             });
             return inlineKeyboard;

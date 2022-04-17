@@ -1,24 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Pavlov_Bot.Keyboard;
 using Telegram.Bot;
-using Telegram.Bot.Args;
 using Telegram.Bot.Extensions.Polling;
 using Telegram.Bot.Types;
-using Telegram.Bot.Types.Enums;
-using Telegram.Bot.Types.ReplyMarkups;
 
 namespace Pavlov_Bot
 {
     class Program
     {
         static ITelegramBotClient bot = new TelegramBotClient("5325291515:AAERyAXGZoQRi5FngozkQgigx-BlCSiPT1Y");
-
+        private static int i = 0;
         static void Main()
         {
             Console.WriteLine("Запущен бот " + bot.GetMeAsync().Result.FirstName);
@@ -62,19 +57,41 @@ namespace Pavlov_Bot
             if (callBack != null)
             {
                 var messageCall = update.CallbackQuery.Message;
-                switch (callBack.Data)
+                if (i < 0)
                 {
-                    case "1":
-                        await botClient.SendTextMessageAsync(messageCall.Chat.Id, "тест1", replyToMessageId: messageCall.MessageId);
-                        await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id); // отсылаем пустое, чтобы убрать "частики" на кнопке
-                        return;
-                    case "0":
-                        await botClient.SendTextMessageAsync(messageCall.Chat.Id, "тест22222", replyToMessageId: messageCall.MessageId);
-                        await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id); // отсылаем пустое, чтобы убрать "частики" на кнопке
-                        return;
+                    i = 0;
                 }
-            }
+                if (i < sneakers.Count && i >= 0)
+                {
+                    switch (callBack.Data)
+                    {
+                        case "інформація":
+                            await botClient.SendTextMessageAsync(messageCall.Chat.Id, $"{sneakers[i].Name} \n{sneakers[i].Price} \n{sneakers[i].Season}");
+                            await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id); // отсылаем пустое, чтобы убрать "частики" на кнопке
+                            return;
+                        case "наступне":
+                            if (i < sneakers.Count - 1)
+                            {
+                                i++;
+                                await botClient.SendPhotoAsync(messageCall.Chat.Id, $"{sneakers[i].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton());
+                                await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id); // отсылаем пустое, чтобы убрать "частики" на кнопке
+                                return;
+                            }
+                            else
+                            {
+                                await botClient.SendTextMessageAsync(messageCall.Chat.Id, "Це був останій товар.", replyMarkup: Keyboard.Keyboards.GetButtons());
+                                await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id);
+                                return;
+                            }
+                    }
+                }
+                else
+                {
+                    await botClient.SendTextMessageAsync(messageCall.Chat.Id, "Це був останій товар.", replyMarkup: Keyboard.Keyboards.GetButtons());
+                    await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id);
+                }
                 
+            }
 
             if (update.Type == Telegram.Bot.Types.Enums.UpdateType.Message)
             {
@@ -94,18 +111,31 @@ namespace Pavlov_Bot
                             cancellationToken: cancellationToken);
                         return;
                     case "nike":
-                        await botClient.SendPhotoAsync(message.Chat, photo: $"{sneakers[0].Img}",
+                        await botClient.SendTextMessageAsync(message.Chat, "Вибирай", replyMarkup: Keyboard.Keyboards.GetButtonsSneakersNike(),
                             cancellationToken: cancellationToken);
-                        await botClient.SendTextMessageAsync(message.Chat, $"Назва: {sneakers[0].Name} ",
-                            cancellationToken: cancellationToken);
-                        await botClient.SendTextMessageAsync(message.Chat, $"Ціна: {sneakers[0].Price}",
-                            replyMarkup: Keyboard.Keyboards.GetInlineButton(), cancellationToken: cancellationToken);
-                        await botClient.SendTextMessageAsync(message.Chat.Id,
-                            "A message with an inline keyboard markup",
-                            replyMarkup: Keyboard.Keyboards.GetInlineButton(), cancellationToken: cancellationToken);
                         return;
-                    case "1":
-                        await botClient.SendTextMessageAsync(message.Chat, "Nike1111",
+                    case "adidas":
+                        await botClient.SendTextMessageAsync(message.Chat, "Вибирай", replyMarkup: Keyboard.Keyboards.GetButtonsSneakersAdidas(),
+                            cancellationToken: cancellationToken);
+                        return;
+                    case "force":
+                        sneakers = sneakers.Where(x => x.Name == "Force").ToList();
+                        await botClient.SendPhotoAsync(message.Chat, $"{sneakers[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
+                            cancellationToken: cancellationToken);
+                        return;
+                    case "dunk":
+                        sneakers = sneakers.Where(x => x.Name == "Dunk").ToList();
+                        await botClient.SendPhotoAsync(message.Chat, $"{sneakers[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
+                            cancellationToken: cancellationToken);
+                        return;
+                    case "iniki":
+                        sneakers = sneakers.Where(x => x.Name == "Iniki").ToList();
+                        await botClient.SendPhotoAsync(message.Chat, $"{sneakers[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
+                            cancellationToken: cancellationToken);
+                        return;
+                    case "yeezy 350":
+                        sneakers = sneakers.Where(x => x.Name == "Yeezy 350").ToList();
+                        await botClient.SendPhotoAsync(message.Chat, $"{sneakers[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
                             cancellationToken: cancellationToken);
                         return;
                     default:
