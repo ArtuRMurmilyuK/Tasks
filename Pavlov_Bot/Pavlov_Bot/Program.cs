@@ -14,6 +14,7 @@ namespace Pavlov_Bot
     {
         static ITelegramBotClient bot = new TelegramBotClient("5325291515:AAERyAXGZoQRi5FngozkQgigx-BlCSiPT1Y");
         private static int i = 0;
+        private static List<Sneaker> _sneakerList = new List<Sneaker>();
         static void Main()
         {
             Console.WriteLine("Запущен бот " + bot.GetMeAsync().Result.FirstName);
@@ -41,57 +42,11 @@ namespace Pavlov_Bot
 
         public static async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
-            List<Sneaker> sneakers = new List<Sneaker>();
-
-            using (SneakersShopDBContext db = new SneakersShopDBContext())
-            {
-                sneakers = db.Sneakers.ToList();
-            }
-
+            //вычитка из бд
             Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(update));
 
             var message = update.Message;
             var callBack = update.CallbackQuery;
-           
-
-            if (callBack != null)
-            {
-                var messageCall = update.CallbackQuery.Message;
-                if (i < 0)
-                {
-                    i = 0;
-                }
-                if (i < sneakers.Count && i >= 0)
-                {
-                    switch (callBack.Data)
-                    {
-                        case "інформація":
-                            await botClient.SendTextMessageAsync(messageCall.Chat.Id, $"{sneakers[i].Name} \n{sneakers[i].Price} \n{sneakers[i].Season}");
-                            await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id); // отсылаем пустое, чтобы убрать "частики" на кнопке
-                            return;
-                        case "наступне":
-                            if (i < sneakers.Count - 1)
-                            {
-                                i++;
-                                await botClient.SendPhotoAsync(messageCall.Chat.Id, $"{sneakers[i].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton());
-                                await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id); // отсылаем пустое, чтобы убрать "частики" на кнопке
-                                return;
-                            }
-                            else
-                            {
-                                await botClient.SendTextMessageAsync(messageCall.Chat.Id, "Це був останій товар.", replyMarkup: Keyboard.Keyboards.GetButtons());
-                                await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id);
-                                return;
-                            }
-                    }
-                }
-                else
-                {
-                    await botClient.SendTextMessageAsync(messageCall.Chat.Id, "Це був останій товар.", replyMarkup: Keyboard.Keyboards.GetButtons());
-                    await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id);
-                }
-                
-            }
 
             if (update.Type == Telegram.Bot.Types.Enums.UpdateType.Message)
             {
@@ -119,23 +74,35 @@ namespace Pavlov_Bot
                             cancellationToken: cancellationToken);
                         return;
                     case "force":
-                        sneakers = sneakers.Where(x => x.Name == "Force").ToList();
-                        await botClient.SendPhotoAsync(message.Chat, $"{sneakers[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
+                        using (SneakersShopDBContext db = new SneakersShopDBContext())
+                        {
+                            _sneakerList = db.Sneakers.Where((x) => x.Name == "Force").ToList();
+                        }
+                        await botClient.SendPhotoAsync(message.Chat, $"{_sneakerList[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
                             cancellationToken: cancellationToken);
                         return;
                     case "dunk":
-                        sneakers = sneakers.Where(x => x.Name == "Dunk").ToList();
-                        await botClient.SendPhotoAsync(message.Chat, $"{sneakers[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
+                        using (SneakersShopDBContext db = new SneakersShopDBContext())
+                        {
+                            _sneakerList = db.Sneakers.Where((x) => x.Name == "Dunk").ToList();
+                        }
+                        await botClient.SendPhotoAsync(message.Chat, $"{_sneakerList[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
                             cancellationToken: cancellationToken);
                         return;
                     case "iniki":
-                        sneakers = sneakers.Where(x => x.Name == "Iniki").ToList();
-                        await botClient.SendPhotoAsync(message.Chat, $"{sneakers[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
+                        using (SneakersShopDBContext db = new SneakersShopDBContext())
+                        {
+                            _sneakerList = db.Sneakers.Where((x) => x.Name == "Iniki").ToList();
+                        }
+                        await botClient.SendPhotoAsync(message.Chat, $"{_sneakerList[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
                             cancellationToken: cancellationToken);
                         return;
                     case "yeezy 350":
-                        sneakers = sneakers.Where(x => x.Name == "Yeezy 350").ToList();
-                        await botClient.SendPhotoAsync(message.Chat, $"{sneakers[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
+                        using (SneakersShopDBContext db = new SneakersShopDBContext())
+                        {
+                            _sneakerList = db.Sneakers.Where((x) => x.Name == "Yeezy 350").ToList();
+                        }
+                        await botClient.SendPhotoAsync(message.Chat, $"{_sneakerList[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
                             cancellationToken: cancellationToken);
                         return;
                     default:
@@ -143,6 +110,45 @@ namespace Pavlov_Bot
                             replyMarkup: Keyboard.Keyboards.GetButtons(), cancellationToken: cancellationToken);
                         return;
                 }
+            }
+
+            if (callBack != null)
+            {
+                var messageCall = update.CallbackQuery.Message;
+                if (i < 0)
+                {
+                    i = 0;
+                }
+                if (i < _sneakerList.Count && i >= 0)
+                {
+                    switch (callBack.Data)
+                    {
+                        case "інформація":
+                            await botClient.SendTextMessageAsync(messageCall.Chat.Id, $"{_sneakerList[i].Name} \n{_sneakerList[i].Price} \n{_sneakerList[i].Season}");
+                            await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id); // отсылаем пустое, чтобы убрать "частики" на кнопке
+                            return;
+                        case "наступне":
+                            if (i < _sneakerList.Count - 1)
+                            {
+                                i++;
+                                await botClient.SendPhotoAsync(messageCall.Chat.Id, $"{_sneakerList[i].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton());
+                                await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id); // отсылаем пустое, чтобы убрать "частики" на кнопке
+                                return;
+                            }
+                            else
+                            {
+                                await botClient.SendTextMessageAsync(messageCall.Chat.Id, "Це був останій товар.", replyMarkup: Keyboard.Keyboards.GetButtons());
+                                await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id);
+                                return;
+                            }
+                    }
+                }
+                else
+                {
+                    await botClient.SendTextMessageAsync(messageCall.Chat.Id, "Це був останій товар.", replyMarkup: Keyboard.Keyboards.GetButtons());
+                    await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id);
+                }
+
             }
         }
     }
