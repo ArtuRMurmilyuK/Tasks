@@ -74,6 +74,7 @@ namespace Pavlov_Bot
                             cancellationToken: cancellationToken);
                         return;
                     case "force":
+                        i = 0;
                         using (SneakersShopDBContext db = new SneakersShopDBContext())
                         {
                             _sneakerList = db.Sneakers.Where((x) => x.Name == "Force").ToList();
@@ -82,6 +83,7 @@ namespace Pavlov_Bot
                             cancellationToken: cancellationToken);
                         return;
                     case "dunk":
+                        i = 0;
                         using (SneakersShopDBContext db = new SneakersShopDBContext())
                         {
                             _sneakerList = db.Sneakers.Where((x) => x.Name == "Dunk").ToList();
@@ -90,6 +92,7 @@ namespace Pavlov_Bot
                             cancellationToken: cancellationToken);
                         return;
                     case "iniki":
+                        i = 0;
                         using (SneakersShopDBContext db = new SneakersShopDBContext())
                         {
                             _sneakerList = db.Sneakers.Where((x) => x.Name == "Iniki").ToList();
@@ -98,6 +101,7 @@ namespace Pavlov_Bot
                             cancellationToken: cancellationToken);
                         return;
                     case "yeezy 350":
+                        i = 0;
                         using (SneakersShopDBContext db = new SneakersShopDBContext())
                         {
                             _sneakerList = db.Sneakers.Where((x) => x.Name == "Yeezy 350").ToList();
