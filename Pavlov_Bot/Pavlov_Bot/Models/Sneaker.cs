@@ -21,6 +21,8 @@ namespace Pavlov_Bot
         public bool IsFavorite { get; set; }
         public bool Available { get; set; }
         public int CategoryId { get; set; }
+        public string Size { get; set; }
+        public string Gender { get; set; }
 
         public virtual Category Category { get; set; }
         public virtual SizeSneaker SizeSneaker { get; set; }

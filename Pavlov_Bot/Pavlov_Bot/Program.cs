@@ -118,6 +118,7 @@ namespace Pavlov_Bot
 
             if (callBack != null)
             {
+                string idUser = null;
                 var messageCall = update.CallbackQuery.Message;
                 if (i < 0)
                 {
@@ -128,7 +129,7 @@ namespace Pavlov_Bot
                     switch (callBack.Data)
                     {
                         case "інформація":
-                            await botClient.SendTextMessageAsync(messageCall.Chat.Id, $"{_sneakerList[i].Name} \n{_sneakerList[i].Price} \n{_sneakerList[i].Season}");
+                            await botClient.SendTextMessageAsync(messageCall.Chat.Id, $"{_sneakerList[i].Name} \n{_sneakerList[i].Price} \n{_sneakerList[i].Season} \n{_sneakerList[i].Size}");
                             await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id); // отсылаем пустое, чтобы убрать "частики" на кнопке
                             return;
                         case "наступне":
@@ -144,6 +145,27 @@ namespace Pavlov_Bot
                                 await botClient.SendTextMessageAsync(messageCall.Chat.Id, "Це був останій товар.", replyMarkup: Keyboard.Keyboards.GetButtons());
                                 await botClient.AnswerCallbackQueryAsync(update.CallbackQuery.Id);
                                 return;
+                            }
+                        case "заказ":
+                            {
+                                await botClient.SendTextMessageAsync(messageCall.Chat.Id, "Ви впевнені що бажаєте оформити заказ в один клік?", replyMarkup: Keyboard.Keyboards.GetVerification());
+                                idUser = messageCall.Chat.FirstName;
+                                return;
+                            }
+                        case "так":
+                            {
+                                if(messageCall.Chat.Username == null)
+                                {
+                                    await botClient.SendPhotoAsync(358263427, $"{_sneakerList[i].Img}");
+                                    await botClient.SendTextMessageAsync(358263427, $"{messageCall.Chat.FirstName} {messageCall.Chat.LastName}");
+                                    return;
+                                }
+                                else
+                                {
+                                    await botClient.SendPhotoAsync(358263427, $"{_sneakerList[i].Img}");
+                                    await botClient.SendTextMessageAsync(358263427, $"@{messageCall.Chat.Username}");
+                                    return;
+                                }
                             }
                     }
                 }

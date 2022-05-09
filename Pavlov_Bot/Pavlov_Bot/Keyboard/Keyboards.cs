@@ -63,6 +63,21 @@ namespace Pavlov_Bot.Keyboard
                 {
                     InlineKeyboardButton.WithCallbackData("Інформація","інформація"),
                     InlineKeyboardButton.WithCallbackData("Наступне","наступне"),
+                    InlineKeyboardButton.WithCallbackData("Заказ","заказ"),
+                },
+            });
+            return inlineKeyboard;
+        }
+
+        public static IReplyMarkup GetVerification()
+        {
+            InlineKeyboardMarkup inlineKeyboard = new(new[]
+            {
+                new[]
+                {
+                    InlineKeyboardButton.WithCallbackData("Так","так"),
+                    InlineKeyboardButton.WithCallbackData("Ні","ні"),
+                    
                 },
             });
             return inlineKeyboard;
