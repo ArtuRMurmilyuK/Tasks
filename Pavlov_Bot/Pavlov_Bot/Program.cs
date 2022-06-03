@@ -77,7 +77,7 @@ namespace Pavlov_Bot
                         i = 0;
                         using (SneakersShopDBContext db = new SneakersShopDBContext())
                         {
-                            _sneakerList = db.Sneakers.Where((x) => x.Name == "Force").ToList();
+                            _sneakerList = db.Sneakers.Where((x) => x.Name.Contains("Force") == true).ToList();
                         }
                         await botClient.SendPhotoAsync(message.Chat, $"{_sneakerList[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
                             cancellationToken: cancellationToken);
@@ -86,7 +86,7 @@ namespace Pavlov_Bot
                         i = 0;
                         using (SneakersShopDBContext db = new SneakersShopDBContext())
                         {
-                            _sneakerList = db.Sneakers.Where((x) => x.Name == "Dunk").ToList();
+                            _sneakerList = db.Sneakers.Where((x) => x.Name.Contains("Dunk") == true).ToList();
                         }
                         await botClient.SendPhotoAsync(message.Chat, $"{_sneakerList[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
                             cancellationToken: cancellationToken);
@@ -95,7 +95,7 @@ namespace Pavlov_Bot
                         i = 0;
                         using (SneakersShopDBContext db = new SneakersShopDBContext())
                         {
-                            _sneakerList = db.Sneakers.Where((x) => x.Name == "Iniki").ToList();
+                            _sneakerList = db.Sneakers.Where((x) => x.Name.Contains("Iniki") == true).ToList();
                         }
                         await botClient.SendPhotoAsync(message.Chat, $"{_sneakerList[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
                             cancellationToken: cancellationToken);
@@ -104,7 +104,7 @@ namespace Pavlov_Bot
                         i = 0;
                         using (SneakersShopDBContext db = new SneakersShopDBContext())
                         {
-                            _sneakerList = db.Sneakers.Where((x) => x.Name == "Yeezy 350").ToList();
+                            _sneakerList = db.Sneakers.Where((x) => x.Name.Contains("Yeezy 350") == true).ToList();
                         }
                         await botClient.SendPhotoAsync(message.Chat, $"{_sneakerList[0].Img}", replyMarkup: Keyboard.Keyboards.GetInlineButton(),
                             cancellationToken: cancellationToken);
