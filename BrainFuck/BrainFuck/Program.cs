@@ -53,6 +53,16 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
                 await botClient.SendTextMessageAsync(message.Chat, "В разработке",
                     cancellationToken: cancellationToken);
                 return;
+            case "список задач":
+                //TODO: reading from the database of tasks that are assigned to you
+                await botClient.SendTextMessageAsync(message.Chat, "В разработке",
+                    cancellationToken: cancellationToken);
+                return;
+            case "донат":
+                //TODO: Card
+                await botClient.SendTextMessageAsync(message.Chat, "В разработке",
+                    cancellationToken: cancellationToken);
+                return;
             default:
                 await botClient.SendTextMessageAsync(message.Chat.Id, "Виберіть команду",
                     replyMarkup: Keyboards.GetButtonsCommands(), cancellationToken: cancellationToken);

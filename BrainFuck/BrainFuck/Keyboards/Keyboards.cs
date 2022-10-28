@@ -14,6 +14,7 @@ namespace BrainFuck.Keyboards
             ReplyKeyboardMarkup replyKeyboardMarkup = new(new[]
             {
                 new KeyboardButton[] {"Дать задание!", "Информация"},
+                new KeyboardButton[] {"Список задач", "Донат"},
             })
             {
                 ResizeKeyboard = true
