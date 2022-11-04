@@ -1,16 +1,25 @@
-﻿using BrainFuck.Keyboards;
+﻿using BrainFuck;
+using BrainFuck.Keyboards;
+using BrainFuck.Models;
 using Newtonsoft.Json;
 using Telegram.Bot;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 
 var botClient = new TelegramBotClient("5679188326:AAGkojAKf1zWyozMZ9_RWkbncMI3y1vOnh8");
-
+var users = new List<Users>();
 using var cts = new CancellationTokenSource();
 
 Console.WriteLine("Запущен бот " + botClient.GetMeAsync().Result.FirstName);
 
+//reading from db
+using (ApplicationContext db = new ApplicationContext())
+{
+    users = db.Users.ToList();
+}
+
 var cancellationToken = cts.Token;
+
 var receiverOptions = new ReceiverOptions
 {
     AllowedUpdates = { }, //receive all update types
