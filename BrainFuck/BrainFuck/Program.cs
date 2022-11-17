@@ -39,9 +39,7 @@ Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, Cancell
 
 async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
 {
-    //вычитка из бд
-    Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(update));
-
+    ControlUser userController = new ControlUser();
     var message = update.Message;
     var callBack = update.CallbackQuery;
 
@@ -50,6 +48,18 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
         switch (message.Text.ToLower())
         {
             case "/start":
+                if(message.Text.ToLower() != null)
+                {
+                    if(message.Chat.Username == null)
+                    {
+                        userController.CreateUserWithOutUsername(message.Chat.FirstName, message.Chat.Id);
+                    }
+                    else
+                    {
+                        userController.CreateUser(message.Chat.FirstName, message.Chat.Username, message.Chat.Id);
+                    }
+                   
+                }
                 await botClient.SendTextMessageAsync(message.Chat.Id, "Вітаємо у Brain Fuck😁🥴",
                     replyMarkup: Keyboards.GetButtonsCommands(), cancellationToken: cancellationToken);
                 return;

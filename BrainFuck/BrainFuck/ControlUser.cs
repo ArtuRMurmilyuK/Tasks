@@ -10,12 +10,26 @@ namespace BrainFuck
 {
     internal class ControlUser
     {
-        public static void CreateUser(string firstName, string username, int userId)
+        public  void CreateUser(string firstName, string username, long userId)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
                 //TODO: no username or firstname
-                Users user = new Users { FirstName = firstName, Username = username, UserId = userId };
+                Users user = new Users { FirstName = firstName, Username = username, UserId = userId};
+
+                // Add to db
+                db.Users.Add(user);
+                db.SaveChanges();
+                Console.WriteLine("Объект успешно сохранены");
+            }
+        }
+
+        public void CreateUserWithOutUsername(string firstName, long userId)
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                //TODO: no username or firstname
+                Users user = new Users { FirstName = firstName, Username = null, UserId = userId };
 
                 // Add to db
                 db.Users.Add(user);
