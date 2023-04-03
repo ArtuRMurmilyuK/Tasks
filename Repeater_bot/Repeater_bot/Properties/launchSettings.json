@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Repeater_bot": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
