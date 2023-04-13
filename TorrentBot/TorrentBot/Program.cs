@@ -7,7 +7,7 @@ using Telegram.Bot.Types.ReplyMarkups;
 using TorrentBot;
 using static TorrentBot.Keyboards;
 
-var botClient = new TelegramBotClient("6030647103:AAE1tsj6JipdgFxjYzeODdf9bw4k9dwSVLo");
+var botClient = new TelegramBotClient("");
 
 using CancellationTokenSource cts = new();
 
