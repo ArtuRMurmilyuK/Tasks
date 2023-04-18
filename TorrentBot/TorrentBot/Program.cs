@@ -4,8 +4,8 @@ using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using TorrentBot;
-
-var botClient = new TelegramBotClient("6030647103:AAE1tsj6JipdgFxjYzeODdf9bw4k9dwSVLo");
+   
+var botClient = new TelegramBotClient("");
 
 using CancellationTokenSource cts = new();
 
@@ -47,6 +47,9 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
             case "Info":
                 await botClient.SendTextMessageAsync(update.Message.Chat.Id, $"With my help you can download torrent files directly to your device");
                 break;
+            default:
+                await botClient.SendTextMessageAsync(update.Message.Chat.Id, $"Unknown request");
+                break;
         }
     }
     else
@@ -67,7 +70,7 @@ async void DownloadFileAsync(ITelegramBotClient botClient, Update update, string
             // получаем информацию о файле
             var file = await botClient.GetFileAsync(update.Message.Document.FileId);
 
-            // сохраняем файл в определенную папку
+            // сохраняем файл в определенную папку(Изменить путь)
             string filePath = Path.Combine($"C:\\Users\\Murmi\\Documents\\{path}\\", update.Message.Document.FileName);
             using (var fileStream = new FileStream(filePath, FileMode.Create))
             {
@@ -83,7 +86,6 @@ async void DownloadFileAsync(ITelegramBotClient botClient, Update update, string
             await botClient.SendTextMessageAsync(update.Message.Chat.Id, $"File has .torrent extension");
         }
     }
-    
 }
 
 Task HandlePollingErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
